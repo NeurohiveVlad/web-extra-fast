@@ -1,113 +1,172 @@
-/* Стили для основных элементов */
+* {
+    box-sizing:border-box;
+}
+
 body {
-	margin: 0;
-	padding: 0;
-	font-family: Arial, sans-serif;
-	background-color: #f2f2f2;
+    font-family: Arial, sans-serif;
+    margin: 0;
 }
 
-h1, h2, h3 {
-	margin: 0;
-}
-
-a {
-	text-decoration: none;
-	color: #333;
-}
-
-/* Стили для блока навигации */
 header {
-	background-color: #333;
-	color: #fff;
-	padding: 10px;
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
+    background-color: #333;
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+}
+
+.logo {
+    font-size: 1.5rem;
 }
 
 nav ul {
-	display: flex;
-	list-style: none;
-	margin: 0;
-	padding: 0;
+    display: flex;
+    list-style: none;
 }
 
-nav li {
-	margin-right: 20px;
+nav ul li {
+    position: relative;
 }
 
-nav a {
-	color: #fff;
+nav ul li a {
+    color: #fff;
+    display: block;
+    padding: 1rem;
+    text-decoration: none;
 }
 
-nav a:hover {
-	color: #ccc;
+nav ul li ul {
+    background-color: #555;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    display: none;
 }
 
-/* Стили для контейнера с курсами */
-.container {
-	max-width: 1200px;
-	margin: 0 auto;
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: center;
-	align-items: center;
-	padding: 50px 20px;
+nav ul li:hover ul {
+    display: block;
 }
 
-.box {
-	background-color: #fff;
-	box-shadow: 0 0 10px rgba(0,0,0,.1);
-	padding: 20px;
-	margin: 20px;
-	text-align: center;
+nav ul li ul li a {
+    color: #fff;
+    padding: 0.5rem 1rem;
 }
 
-.box img {
-	max-width: 100%;
-	margin-bottom: 20px;
+main {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin: 2rem;
 }
 
-.box h2 {
-	margin-bottom: 20px;
+.course {
+    background-color: #f5f5f5;
+    border-radius: 0.5rem;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+    margin: 1rem;
+    padding: 1rem;
+    text-align: center;
+    width: 300px;
 }
 
-.box p {
-	margin-bottom: 20px;
+.course img {
+    border-radius: 0.5rem;
+    height: 200px;
+    margin-bottom: 1rem;
+    width: 100%;
+}
+
+.course h2 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.course p {
+    font-size: 1rem;
+    margin-bottom: 1rem;
 }
 
 .btn {
-	display: inline-block;
-	padding: 10px 20px;
-	background-color: #333;
-	color: #fff;
-	border-radius: 5px;
+    background-color: #333;
+    border: none;
+    border-radius: 0.5rem;
+    color: #fff;
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 0.5rem 1rem;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
 }
 
 .btn:hover {
-	background-color: #666;
-	cursor: pointer;
+    background-color: #555;
 }
 
-/* Стили для футера */
+.modal {
+    background-color: rgba(0, 0, 0, 0.5);
+    height: 100%;
+    left: 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1;
+    display: none;
+}
+
+.modal-content {
+    background-color: #fff;
+    border-radius: 0.5rem;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+    margin: 5% auto;
+    max-width: 500px;
+    padding: 1rem;
+    position: relative;
+    text-align: center;
+}
+
+.modal-content img {
+    border-radius: 0.5rem;
+    height: 200px;
+    margin-bottom: 1rem;
+    width: 100%;
+}
+
+.modal-content h2 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.modal-content p {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+}
+
+.modal-content .btn {
+    margin-top: 1rem;
+}
+
+.modal:target {
+    display: flex;
+}
+
 footer {
-	background-color: #333;
-	color: #fff;
-	padding: 20px;
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	flex-wrap: wrap;
+    background-color: #333;
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
 }
 
 .contact-info p {
-	margin: 0;
-}
-
-.social-links a {
-	margin-right: 10px;
+    margin: 0;
 }
 
 .social-links img {
-	max-width: 50px;
+    height: 30px;
+    margin-left: 1rem;
+    width: 30px;
 }
