@@ -1,99 +1,113 @@
+/* Стили для основных элементов */
 body {
-	background-color: #5c4e7d;
-	color: #fff;
-	font-family: Arial, sans-serif;
 	margin: 0;
 	padding: 0;
+	font-family: Arial, sans-serif;
+	background-color: #f2f2f2;
 }
 
-header {
-	background-color: #fff;
-	border-bottom: 1px solid #5c4e7d;
-	padding: 10px;
-	text-align: center;
-}
-
-h1 {
+h1, h2, h3 {
 	margin: 0;
-	font-size: 48px;
 }
 
-h1 a {
-	color: #5c4e7d;
+a {
 	text-decoration: none;
+	color: #333;
 }
 
-section {
-	margin: 50px auto;
-	max-width: 800px;
-}
-
-.box {
-	background-color: #fff;
-	border: 1px solid #5c4e7d;
-	margin-bottom: 50px;
-	padding: 20px;
-	text-align: center;
-}
-
-.box h2 {
-	margin-top: 0;
-}
-
-.box img {
-	max-width: 100%;
-	height: auto;
-	margin-bottom: 20px;
-}
-
-.box p {
-	line-height: 1.5;
-	margin-bottom: 20px;
-}
-
-.btn {
-	background-color: #5c4e7d;
-	border: none;
+/* Стили для блока навигации */
+header {
+	background-color: #333;
 	color: #fff;
-	padding: 10px 20px;
-	text-align: center;
-	text-decoration: none;
-	display: inline-block;
-	font-size: 16px;
-	margin: 10px 0;
-	cursor: pointer;
-	border-radius: 20px;
-}
-
-.btn:hover {
-	background-color: #fff;
-	color: #5c4e7d;
-	border: 2px solid #5c4e7d;
-}
-
-footer {
-	background-color: #fff;
-	border-top: 1px solid #5c4e7d;
-	color: #5c4e7d;
 	padding: 10px;
-	text-align: center;
 	display: flex;
-	flex-wrap: wrap;
 	justify-content: space-between;
 	align-items: center;
 }
 
+nav ul {
+	display: flex;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+nav li {
+	margin-right: 20px;
+}
+
+nav a {
+	color: #fff;
+}
+
+nav a:hover {
+	color: #ccc;
+}
+
+/* Стили для контейнера с курсами */
+.container {
+	max-width: 1200px;
+	margin: 0 auto;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+	padding: 50px 20px;
+}
+
+.box {
+	background-color: #fff;
+	box-shadow: 0 0 10px rgba(0,0,0,.1);
+	padding: 20px;
+	margin: 20px;
+	text-align: center;
+}
+
+.box img {
+	max-width: 100%;
+	margin-bottom: 20px;
+}
+
+.box h2 {
+	margin-bottom: 20px;
+}
+
+.box p {
+	margin-bottom: 20px;
+}
+
+.btn {
+	display: inline-block;
+	padding: 10px 20px;
+	background-color: #333;
+	color: #fff;
+	border-radius: 5px;
+}
+
+.btn:hover {
+	background-color: #666;
+	cursor: pointer;
+}
+
+/* Стили для футера */
+footer {
+	background-color: #333;
+	color: #fff;
+	padding: 20px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	flex-wrap: wrap;
+}
+
 .contact-info p {
 	margin: 0;
-	line-height: 1.5;
 }
 
 .social-links a {
-	display: inline-block;
-	margin-left: 10px;
+	margin-right: 10px;
 }
 
 .social-links img {
-	max-width: 100%;
-	height: auto;
+	max-width: 50px;
 }
