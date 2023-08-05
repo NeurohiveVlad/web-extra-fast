@@ -75,6 +75,65 @@
                 <a href="#" class="btn">Перейти на страницу курса</a>
             </div>
         </div>
+        <div id="rss-feed-slider">
+            <div id="rss-feed"></div>
+          </div>
+          
+          <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+          <script>
+          $(document).ready(function() {
+            var rssUrl = "https://www.ixbt.com/export/news.rss";
+            var numItems = 10;
+            var html = '<div class="rss-widget">';
+            
+            $.ajax({
+              url: "https://api.rss2json.com/v1/api.json",
+              data: {rss_url: rssUrl, count: numItems},
+              dataType: "json",
+              success: function(data) {
+                if (data.status == "ok") {
+                  $.each(data.items, function(i, item) {
+                    html += '<div class="rss-item">';
+                    html += '<a href="' + item.link + '">' + item.title + '</a>';
+                    html += '<div class="rss-date">' + item.pubDate + '</div>';
+                    html += '<div class="rss-description">' + item.description.replace(/<[^>]*>/g, '') + '</div>';
+                    html += '</div>';
+                  });
+                } else {
+                  html += '<div class="error">' + data.message + '</div>';
+                }
+                html += '</div>';
+                $('#rss-feed').html(html);
+                
+                // Настройка слайдера
+                var sliderInterval = setInterval(function() {
+                  var currentSlide = $('#rss-feed .rss-item:visible');
+                  var nextSlide = currentSlide.next('.rss-item').length > 0 ? currentSlide.next('.rss-item') : $('#rss-feed .rss-item:first');
+                  currentSlide.fadeOut(1000);
+                  nextSlide.fadeIn(1000);
+                }, 30000); // меняем слайд каждые 30 секунд
+                
+                $('#rss-feed .rss-item:not(:first)').hide(); // скрываем все элементы, кроме первого
+                
+                $('#rss-feed-slider').hover(function() {
+                  clearInterval(sliderInterval);
+                }, function() {
+                  sliderInterval = setInterval(function() {
+                    var currentSlide = $('#rss-feed .rss-item:visible');
+                    var nextSlide = currentSlide.next('.rss-item').length > 0 ? currentSlide.next('.rss-item') : $('#rss-feed .rss-item:first');
+                    currentSlide.fadeOut(1000);
+                    nextSlide.fadeIn(1000);
+                  }, 30000);
+                }); // при наведении мыши на слайдер останавливаем автоматический переход
+              },
+              error: function(xhr, status, error) {
+                html += '<div class="error">' + error + '</div>';
+                html += '</div>';
+                $('#rss-feed').html(html);
+              }
+            });
+          });
+          </script>
     </main>
     <footer>
         <div class="contact-info">
